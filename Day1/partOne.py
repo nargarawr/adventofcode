@@ -8,16 +8,17 @@ captcha = input('Input the captcha:\n')
 # Convert to a list of chars
 c = list(str(captcha))
 
-lastVal = ''
 sum = 0
-# Loop through the list, if the current value is equal to the last value, add this value to the sum
-for val in c:
-  if val == lastVal:
-      sum += int(val)
-  lastVal = val
 
-# If the first and last values of the list are the same, add this value to the sum
-if c[0] == lastVal:
-  sum += int(lastVal)
+# Loop through the list, if the current value is equal to the next value (accounting for wrapping), add this value to the sum
+for i, val in enumerate(c):
+  index = i + 1
+   
+  # Wrap here
+  if index >= len(c):
+    index = index - len(c)
+    
+  if val == c[index]:
+      sum += int(val)
   
 print('Your answer is:', sum)

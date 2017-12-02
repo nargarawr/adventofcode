@@ -15,13 +15,11 @@ sum = 0
 # Loop through the list, if the current value is equal to the value (n/2) elements in the future (accounting for wrapping), add this value to the sum
 for i, val in enumerate(c):
   index = half + i
-  print(index)  
   
   # Wrap here
   if index >= len(c):
     index = index - len(c)
-    
-  print('v1:',val,'v2:',c[index])
+
   if val == c[index]:
       sum += int(val)
   
